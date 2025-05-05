@@ -11,6 +11,7 @@ document.getElementById("studentForm").addEventListener("submit",function(e){
     const name=document.getElementById("name").value.trim();
     const lastName=document.getElementById("lastName").value.trim();
     const grade=document.getElementById("grade").value.trim();
+    const date=document.getElementById("date").value.trim();
 
     //Se debe validar cuando haya algún dato que no corresponda. Como una nota menor que 1 y mayor que 7. Entonces se debe programar una alerta de error.
     if(grade <1 || grade >7 || !name || !lastName || isNaN(grade)){
@@ -20,7 +21,7 @@ document.getElementById("studentForm").addEventListener("submit",function(e){
 
     //Guardar datos en el Array
 
-    const student={name,lastName,grade};
+    const student={name,lastName,grade,date};
     students.push(student);
     addStudentToTable(student)
     //console.log(students)
@@ -33,7 +34,8 @@ function addStudentToTable(student){
     row.innerHTML=
     `<td>${student.name}</td>
     <td>${student.lastName}</td>
-    <td>${student.grade}</td>`;
+    <td>${student.grade}</td>
+    <td>${student.date}</td>`;
     tableBody.appendChild(row);
 }
 
