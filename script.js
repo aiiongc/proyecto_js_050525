@@ -1,6 +1,7 @@
 // Se necesita capturar, pasar el dato del formulario y guardarlo en un array
 const students=[];
 
+const tableBody=document.querySelector("#studentsTable tbody");
 // Se coloca ID del formulario
 // addEventListener escucha cuando alguien hace click en el boton submit
 document.getElementById("studentForm").addEventListener("submit",function(e){
@@ -21,9 +22,8 @@ document.getElementById("studentForm").addEventListener("submit",function(e){
 
     const student={name,lastName,grade};
     students.push(student);
-    addStudentToTable(student);
-    console.log(students)
-    
+    addStudentToTable(student)
+    //console.log(students)
     this.reset();
 
 });
@@ -33,7 +33,7 @@ function addStudentToTable(student){
     row.innerHTML=
     `<td>${student.name}</td>
     <td>${student.lastName}</td>
-    <td>${student.grade.toFixed(1)}</td>`;
+    <td>${student.grade}</td>`;
     tableBody.appendChild(row);
 }
 
